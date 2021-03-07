@@ -8,7 +8,7 @@ const Component = styled.p`
 `
 const Typography = props => {
   const {variant, children} = props;
-  const tag = variant === 'p2' ? 'p' : variant;
+  const tag = variant.includes('p') ? 'p' : variant;
   return (
     <Component as={tag} {...props}>{children}</Component>
   )
@@ -20,7 +20,7 @@ Typography.propTypes = {
 }
 
 Typography.defaultProps = {
-  variant: 'p',
+  variant: 'p1',
   color: 'tertiary'
 }
 export default withTheme(Typography)
