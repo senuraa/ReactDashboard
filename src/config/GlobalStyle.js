@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
     background-color: #51A94B;
     *,
   *::after,*::before {
-    box-sizing: inherit;
+    box-sizing: border-box;
     font-family: 'Mulish', sans-serif;
     }
   h1,h2,h3,h4,h5,h6,p {
