@@ -9,7 +9,7 @@ const InputWrapper = styled.div`
 
 const IconHolder = styled.div`
   position: absolute;
-  top: 1rem;
+  top: 1.125rem;
   left: 1rem;
   color: ${props => props.theme.colors.text.primary};
 `
