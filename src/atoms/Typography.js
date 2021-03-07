@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { withTheme } from 'styled-components'
 
 const Component = styled.p`
-  color: ${props => props.theme.colors[props.color]};
+  color: ${props => props.theme.colors.text[props.color]};
   font-size: ${props => props.theme.typography[props.variant].fontSize};
 `
 const Typography = props => {
@@ -16,7 +16,7 @@ const Typography = props => {
 Typography.propTypes = {
   variant: PropTypes.string,
   color: PropTypes.string,
-  children: PropTypes.element.isRequired
+  children: PropTypes.node.isRequired
 }
 
 Typography.defaultProps = {
