@@ -20,7 +20,8 @@ const Theme = {
     },
     text: {
       primary: '#858F98',
-      secondary: '#fff'
+      secondary: '#fff',
+      error: '#f44336'
     }
   },
   typography: {

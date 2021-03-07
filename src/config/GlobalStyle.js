@@ -1,12 +1,20 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
+  html {
+    height: 100%;
+  }
+  #root {
+    height: 100%;
+  }
   body {
     margin: 0;
     padding: 0;
     font-family: 'Mulish', sans-serif;
     background-color: #51A94B;
-    *,
+    height:100%;
+  }
+  *,
   *::after,*::before {
     box-sizing: border-box;
     font-family: 'Mulish', sans-serif;
@@ -15,6 +23,5 @@ const GlobalStyle = createGlobalStyle`
    margin: 0;
    padding: 0;
    }
-  }
 `
 export default GlobalStyle

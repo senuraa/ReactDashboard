@@ -10,6 +10,7 @@ const StyledButton = styled.button`
   font-size: 1.125rem;
   font-weight: 300;
   transition: 0.3s;
+  cursor: pointer;
   &:hover {
     background: rgba(255,255,255,0.8);
   }
