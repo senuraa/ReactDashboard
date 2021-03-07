@@ -25,7 +25,7 @@ const Theme = {
   },
   typography: {
     h1: {
-      fontSize: '2.5rem',
+      fontSize: '1.7rem',
       fontWeight: 700
     },
     p1: {

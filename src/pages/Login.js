@@ -1,22 +1,23 @@
 import React from 'react'
-import Typography from '../atoms/Typography'
-import Button from '../atoms/Button'
-import InputField from '../atoms/InputField'
-import IconInputField from '../molecules/IconInputField'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import CheckboxField from '../molecules/CheckboxField'
-
-const userIco = <FontAwesomeIcon icon={['fa','user']}/>
-
+import HomeContent from '../templates/HomeContent';
+import LoginForm from '../organisms/LoginForm';
+import {Row, Col} from 'react-grid-system'
+import Typography from '../atoms/Typography';
 const Login = () => {
   return (
-    <div>
-      <Typography color='secondary' variant={'h1'}>Testing Login Typo</Typography>
-      <Button color='secondary' onClick={() => alert('testing')}>Testing</Button>
-      <InputField name={'Testing'} placeholder={'Username'} variant={'filled'}/>
-      <IconInputField icon={userIco} name={'Testing'} placeholder={'Username'} variant={'standard'} />
-      <CheckboxField label={'Remember Me'} />
-    </div>
+    <HomeContent>
+      <Row>
+        <Col>
+          <Typography color={'secondary'} variant={'h1'} align={'center'}>Welcome to Springboard</Typography>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Typography color={'secondary'} variant={'p2'} align={'center'}>Please log in to continue</Typography>
+        </Col>
+      </Row>
+      <LoginForm />
+    </HomeContent>
   )
 }
 

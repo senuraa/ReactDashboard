@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, {withTheme} from 'styled-components'
 import * as Constants from '../config/Constants'
 
 const StyledInput = styled.input`
@@ -9,22 +9,25 @@ const StyledInput = styled.input`
   font-size: 1rem;
   font-weight: 700;
   background: ${props => props.variant === Constants.INPUT_STD ? props.theme.colors.white : 'transparent'};
-  &::placeholder{
+  &::placeholder,
+  &::-webkit-input-placeholder{
+    opacity: 1;
     color: ${props => props.theme.colors.text.primary};
   }
+  border-radius: 0.3rem;
   border: ${props => props.variant === Constants.INPUT_STD ? `1px solid ${props.theme.colors.text.primary}` : 'none'};
-  border-bottom: ${props => props.variant === Constants.INPUT_FILLED ? `2px solid ${props.theme.colors.text.primary}` : 'none'};
+  border-bottom: ${props => props.variant === Constants.INPUT_FILLED ? `2px solid ${props.theme.colors.text.primary}` : ''};
 `
 
 const InputField = props => {
   const { variant, type, value, name, placeholder, onChange, required } = props
-  return  <StyledInput type={type} value={value} name={name} placeholder={placeholder} onChange={onChange} required={required} variant={variant}/>
+  return  <StyledInput type={type} value={value} name={name} placeholder={placeholder} onChange={onChange} required={required} variant={variant} {...props}/>
 }
 
 InputField.propTypes = {
   variant: PropTypes.string,
   type: PropTypes.string,
-  value: PropTypes.object,
+  value: PropTypes.string,
   name: PropTypes.string,
   placeholder: PropTypes.string,
   onChange: PropTypes.func,
@@ -37,4 +40,4 @@ InputField.defaultProps = {
   required: false
 }
 
-export default InputField
+export default withTheme(InputField)

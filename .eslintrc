@@ -15,7 +15,7 @@
     "no-eval": "error",
     "import/first": "error",
     "quotes": [2, "single", { "avoidEscape": true }],
-    "react/prop-types": ["error"],
+    "react/prop-types": ["warn"],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
   }
 }

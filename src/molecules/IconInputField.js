@@ -15,17 +15,17 @@ const IconHolder = styled.div`
 `
 
 const IconInputField = props => {
-  const { icon } = props
+  const { icon, ...other } = props
   return (
     <InputWrapper>
       <IconHolder>{icon}</IconHolder>
-      <InputField {...props} />
+      <InputField {...other} />
     </InputWrapper>
   )
 }
 
 IconInputField.propTypes = {
-  icon: PropTypes.element
+  icon: PropTypes.element,
 }
 
 export default IconInputField
