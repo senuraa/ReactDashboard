@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import { ScreenClassProvider } from "react-grid-system";
 import Login from "./pages/Login";
 import { addIcons } from "./config/IconLibrary";
+import * as Constants from "./config/Constants";
 import Dashboard from "./pages/Dashboard";
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
         <Route exact path="/">
           <Login />
         </Route>
-        <Route path={"/dashboard"}>
+        <Route path={Constants.ROUTE_DASHBOARD}>
           <Dashboard />
         </Route>
       </Switch>

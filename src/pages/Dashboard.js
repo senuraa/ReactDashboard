@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Routes from "../Routes";
+import Routes from "../config/routes/Routes";
+import RouteArray from "../config/routes/RouteConfig";
 
 const Dashboard = () => {
   return (
@@ -8,9 +9,13 @@ const Dashboard = () => {
       <div>Header</div>
       <div>
         <ul>
-          <Link to="/dashboard/users">Home</Link>
-          <Link to="/dashboard/create-user">Create User</Link>
-          <Link to="/dashboard/logout">Logout</Link>
+          {RouteArray.map((route, index) => {
+            return (
+              <Link to={route.path} key={index}>
+                {route.title}
+              </Link>
+            );
+          })}
         </ul>
       </div>
       <div>
