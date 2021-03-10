@@ -7,7 +7,9 @@ import reportWebVitals from "./reportWebVitals";
 import GlobalStyle from "./config/GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import Theme from "./config/Theme";
+import { debugContextDevtool } from "react-context-devtool";
 
+const container = document.getElementById("root");
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={Theme}>
@@ -17,8 +19,9 @@ ReactDOM.render(
       </BrowserRouter>
     </ThemeProvider>
   </React.StrictMode>,
-  document.getElementById("root")
+  container
 );
+debugContextDevtool(container, {});
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

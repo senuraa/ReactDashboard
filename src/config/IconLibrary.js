@@ -7,6 +7,7 @@ import {
   faHome,
   faFileAlt,
   faSignOutAlt,
+  faBars,
 } from "@fortawesome/free-solid-svg-icons";
 
 export const addIcons = () =>
@@ -17,5 +18,6 @@ export const addIcons = () =>
     faUsers,
     faHome,
     faFileAlt,
-    faSignOutAlt
+    faSignOutAlt,
+    faBars
   );

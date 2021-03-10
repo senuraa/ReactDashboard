@@ -1,12 +1,12 @@
 import React from "react";
-import HomeContent from "../components/templates/HomeContent";
 import LoginForm from "../components/organisms/LoginForm";
 import { Row, Col } from "react-grid-system";
 import Typography from "../components/atoms/Typography";
+import LoginTemplate from "../components/templates/LoginTemplate";
 
 const Login = () => {
   return (
-    <HomeContent>
+    <LoginTemplate>
       <Row>
         <Col>
           <Typography color={"secondary"} variant={"h1"} align={"center"}>
@@ -22,7 +22,7 @@ const Login = () => {
         </Col>
       </Row>
       <LoginForm />
-    </HomeContent>
+    </LoginTemplate>
   );
 };
 

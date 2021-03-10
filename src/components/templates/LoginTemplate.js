@@ -13,7 +13,7 @@ const FormContainer = styled.div`
 const SdContainer = styled(Container)`
   height: 100%;
 `;
-const HomeContent = (props) => {
+const LoginTemplate = (props) => {
   return (
     <SdContainer>
       <FormContainer>{props.children}</FormContainer>
@@ -21,8 +21,8 @@ const HomeContent = (props) => {
   );
 };
 
-HomeContent.propTypes = {
+LoginTemplate.propTypes = {
   children: PropTypes.node,
 };
 
-export default HomeContent;
+export default LoginTemplate;
