@@ -2,10 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Routes from "../config/routes/Routes";
 import RouteArray from "../config/routes/RouteConfig";
+import { createGlobalStyle, withTheme } from "styled-components";
 
-const Dashboard = () => {
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: ${(props) => props.theme.colors.secondary.main}
+  }
+`;
+
+const Dashboard = (props) => {
   return (
     <div>
+      <GlobalStyle {...props} />
       <div>Header</div>
       <div>
         <ul>
@@ -25,4 +33,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default withTheme(Dashboard);
