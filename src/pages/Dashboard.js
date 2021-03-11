@@ -17,6 +17,7 @@ const DashboardWrap = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 `;
 
 const HeaderArea = styled.div`
