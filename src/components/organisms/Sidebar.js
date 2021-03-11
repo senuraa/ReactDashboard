@@ -6,7 +6,7 @@ import { SidebarMenuContext } from "../../pages/Dashboard";
 
 const SidebarWrap = styled.div((props) => ({
   transform: props.open ? "" : "translateX(-100%)",
-  width: "calc(1vw * 25)",
+  width: "calc(1vw * 15)",
 }));
 
 const Sidebar = () => {

@@ -1,10 +1,19 @@
 import React from "react";
+import styled from "styled-components";
+import Typography from "../atoms/Typography";
+
+const FooterWrap = styled.div`
+  text-align: center;
+  padding: 1rem;
+`;
 
 const Footer = () => {
   return (
-    <div>
-      <h5>Footer</h5>
-    </div>
+    <FooterWrap>
+      <Typography color={"secondary"} variant={"p1"} align={"center"}>
+        Designed and Powered by Trabeya
+      </Typography>
+    </FooterWrap>
   );
 };
 

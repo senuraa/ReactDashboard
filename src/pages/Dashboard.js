@@ -21,7 +21,6 @@ const DashboardWrap = styled.div`
 
 const HeaderArea = styled.div`
   width: 100%;
-  flex: 1;
 `;
 
 const CenterArea = styled.div`
@@ -33,11 +32,14 @@ const CenterArea = styled.div`
 
 const FooterArea = styled.div`
   width: 100%;
-  flex: 1;
+  background-color: ${(props) => props.theme.colors.tertiary.main};
 `;
 
 const SidebarArea = styled.div`
-  width: ${(props) => (props.open ? "calc(25%)" : 0)};
+  width: ${(props) => (props.open ? "calc(15%)" : 0)};
+  background-color: ${(props) => props.theme.colors.grey};
+  border-top-right-radius: 12rem;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 `;
 
 const ContentArea = styled.div`
