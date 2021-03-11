@@ -1,11 +1,29 @@
-import React from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { func, shape, string } from "prop-types";
+import { getUsers } from "../actions/users";
 
-const Users = () => {
-  return (
-    <div>
-      <h1>All users</h1>
-    </div>
-  );
+class Users extends Component {
+  componentDidMount() {
+    this.props.getUsers();
+  }
+
+  render() {
+    return <div>{JSON.stringify(this.props.users.data)}</div>;
+  }
+}
+
+Users.propTypes = {
+  users: shape({
+    test: string,
+  }),
+  getUsers: func,
 };
 
-export default Users;
+const mapStateToProps = (state) => {
+  return {
+    users: state.users,
+  };
+};
+
+export default connect(mapStateToProps, { getUsers })(Users);
