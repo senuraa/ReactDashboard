@@ -10,10 +10,10 @@ const IconWrap = styled.div`
 
 const HamburgerMenuButton = () => {
   const { open, setOpen } = useContext(SidebarMenuContext);
-  const color = open ? "secondary" : "primary";
+  //const color = open ? "secondary" : "primary";
   return (
     <IconWrap>
-      <Button color={color} onClick={() => setOpen(!open)}>
+      <Button color={"primary"} onClick={() => setOpen(!open)}>
         <Icon icon={"bars"} />
       </Button>
     </IconWrap>

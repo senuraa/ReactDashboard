@@ -80,7 +80,7 @@ class LoginForm extends Component {
   handleLogin() {
     const { username, password } = this.state;
     if (username.length > 6 && password.length > 6) {
-      this.props.history.push(Constants.ROUTE_DASHBOARD);
+      this.props.history.push(Constants.ROUTE_USERS);
     } else {
       this.setState({ error: "Invalid Username or Password" });
     }

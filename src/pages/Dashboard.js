@@ -14,20 +14,26 @@ const GlobalStyle = createGlobalStyle`
 
 const DashboardWrap = styled.div`
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 `;
 
 const HeaderArea = styled.div`
   width: 100%;
+  flex: 1;
 `;
 
 const CenterArea = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
+  flex: 11;
 `;
 
 const FooterArea = styled.div`
   width: 100%;
+  flex: 1;
 `;
 
 const SidebarArea = styled.div`
@@ -39,7 +45,7 @@ const ContentArea = styled.div`
 `;
 
 const Dashboard = (props) => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   return (
     <SidebarMenuContext.Provider value={{ open, setOpen }}>
       <DashboardWrap>
