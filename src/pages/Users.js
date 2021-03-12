@@ -5,11 +5,11 @@ import { Row, Col, Container } from "react-grid-system";
 import { getUsers } from "../actions/users";
 import Typography from "../components/atoms/Typography";
 import UserCard from "../components/organisms/UserCard";
+import styled from "styled-components";
 
-// const ContentWrap = styled.div`
-//   width: 100%;
-//   padding: 1rem;
-// `;
+const DepTitle = styled(Typography)`
+  margin: 1rem;
+`;
 
 class Users extends Component {
   constructor(props) {
@@ -39,20 +39,37 @@ class Users extends Component {
             </Col>
           );
         });
-        deps.push(<Row key={`${dep}`}>{users}</Row>);
+        deps.push(
+          <>
+            <Row>
+              <Col>
+                <DepTitle color={"quaternary"} variant={"h3"}>
+                  {dep}
+                </DepTitle>
+              </Col>
+            </Row>
+            <Row key={`${dep}`}>{users}</Row>
+          </>
+        );
       });
       return deps;
     }
   }
 
   render() {
-    const { isLoading, isFailed } = this.props.users;
-    if (!isLoading && !isFailed) {
+    const { isLoading, isFailed, data } = this.props.users;
+    if (!isLoading && !isFailed && data.length > 0) {
       return <Container>{this.createUsersList()}</Container>;
     } else if (isLoading) {
       return (
         <Typography color={"primary"} variant={"h1"} align={"center"}>
           Loading...
+        </Typography>
+      );
+    } else {
+      return (
+        <Typography color={"primary"} variant={"h1"} align={"center"}>
+          Failed
         </Typography>
       );
     }

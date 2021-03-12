@@ -23,12 +23,21 @@ const Theme = {
       primary: "#858F98",
       secondary: "#fff",
       tertiary: "#4A484B",
+      quaternary: "#0D126F",
       error: "#f44336",
     },
   },
   typography: {
     h1: {
       fontSize: "1.7rem",
+      fontWeight: 700,
+    },
+    h2: {
+      fontSize: "1.6rem",
+      fontWeight: 700,
+    },
+    h3: {
+      fontSize: "1.4rem",
       fontWeight: 700,
     },
     p1: {

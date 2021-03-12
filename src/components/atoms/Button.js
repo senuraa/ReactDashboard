@@ -14,6 +14,7 @@ const StyledButton = styled.button`
 
   &:hover {
     background: rgba(255, 255, 255, 0.8);
+    color: ${(props) => props.theme.colors[props.color].main};
   }
 
   &:focus {

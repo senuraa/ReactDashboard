@@ -14,6 +14,10 @@ const HeaderWrap = styled.div`
 
 const NamesContainer = styled.div`
   display: block;
+  padding: 0.5rem;
+`;
+const LastName = styled(Typography)`
+  font-weight: 700;
 `;
 
 const UserCardHeader = (props) => {
@@ -21,14 +25,14 @@ const UserCardHeader = (props) => {
   return (
     <HeaderWrap {...props}>
       <NamesContainer>
-        <Typography color={"secondary"} variant={"p2"} align={"left"}>
+        <Typography color={"primary"} variant={"p2"} align={"left"}>
           {firstName}
         </Typography>
-        <Typography color={"secondary"} variant={"p2"} align={"left"}>
+        <LastName color={"primary"} variant={"p2"} align={"left"}>
           {lastName}
-        </Typography>
+        </LastName>
       </NamesContainer>
-      <Button color={"primary"} onClick={onClick}>
+      <Button color={"tertiary"} onClick={onClick}>
         <Icon icon={"trash-alt"} />
       </Button>
     </HeaderWrap>
