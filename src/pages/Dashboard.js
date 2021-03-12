@@ -17,7 +17,6 @@ const DashboardWrap = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 `;
 
 const HeaderArea = styled.div`
@@ -29,6 +28,7 @@ const CenterArea = styled.div`
   display: flex;
   flex-direction: row;
   flex: 11;
+  overflow: hidden;
 `;
 
 const FooterArea = styled.div`
@@ -41,11 +41,11 @@ const SidebarArea = styled.div`
   background-color: ${(props) => props.theme.colors.grey};
   border-top-right-radius: 12rem;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-  min-width: ${(props) => (props.open ? "17.5rem" : 0)};
 `;
 
 const ContentArea = styled.div`
   flex-grow: 1;
+  overflow-y: auto;
 `;
 
 const Dashboard = (props) => {

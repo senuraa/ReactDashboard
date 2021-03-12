@@ -8,12 +8,10 @@ const SidebarWrap = styled.div((props) => ({
   transform: props.open ? "" : "translateX(-100%)",
   width: "calc(1vw * 15)",
   "margin-top": "12rem",
-  height: "100%",
 }));
 
 const Ul = styled.ul`
   list-style: none;
-  height: 100%;
   padding-left: 1rem;
   margin: 0;
 `;

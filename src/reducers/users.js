@@ -1,7 +1,7 @@
 import { Types } from "../actions/users";
 
 const INIT_STATE = {
-  data: "Trabeya INIT STATE",
+  data: [],
 };
 export default function data(state = INIT_STATE, action) {
   switch (action.type) {

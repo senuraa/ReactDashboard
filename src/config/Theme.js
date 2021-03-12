@@ -22,6 +22,7 @@ const Theme = {
     text: {
       primary: "#858F98",
       secondary: "#fff",
+      tertiary: "#4A484B",
       error: "#f44336",
     },
   },
