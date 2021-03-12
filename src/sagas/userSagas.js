@@ -4,11 +4,10 @@ import * as api from "../api/users";
 
 function* fetchData() {
   try {
-    console.log("in Saga");
     const data = yield call(api.getUsers);
     yield put(actions.getUsersSuccess({ data: data.data }));
   } catch (e) {
-    console.log(e);
+    yield put(actions.getUsersError(e));
   }
 }
 
