@@ -18,6 +18,7 @@ const RouteArray = [
   {
     path: Constants.ROUTE_LOGOUT,
     title: "Logout",
+    redirect: "/",
     icon: "sign-out-alt",
   },
 ];

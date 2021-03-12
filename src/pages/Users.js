@@ -40,7 +40,7 @@ class Users extends Component {
           );
         });
         deps.push(
-          <>
+          <div key={`${dep}_title`}>
             <Row>
               <Col>
                 <DepTitle color={"quaternary"} variant={"h3"}>
@@ -49,7 +49,7 @@ class Users extends Component {
               </Col>
             </Row>
             <Row key={`${dep}`}>{users}</Row>
-          </>
+          </div>
         );
       });
       return deps;
