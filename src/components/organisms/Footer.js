@@ -1,10 +1,11 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { withTheme } from "styled-components";
 import Typography from "../atoms/Typography";
 
 const FooterWrap = styled.div`
   text-align: center;
   padding: 1rem;
+  background-color: ${(props) => props.theme.colors.tertiary.main};
 `;
 
 const Footer = () => {
@@ -17,4 +18,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default withTheme(Footer);

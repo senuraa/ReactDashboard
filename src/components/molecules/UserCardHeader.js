@@ -17,7 +17,7 @@ const NamesContainer = styled.div`
   padding: 0.5rem;
 `;
 const LastName = styled(Typography)`
-  font-weight: 700;
+  font-weight: 700 !important;
 `;
 
 const UserCardHeader = (props) => {

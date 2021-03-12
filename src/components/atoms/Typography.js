@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { node, string } from "prop-types";
 import styled, { withTheme } from "styled-components";
 
 const Component = styled.p`
@@ -7,21 +7,23 @@ const Component = styled.p`
   font-size: ${(props) => props.theme.typography[props.variant].fontSize};
   font-weight: ${(props) => props.theme.typography[props.variant].fontWeight};
   text-align: ${(props) => props.align};
+  margin: ${(props) => (props.margin ? props.margin : 0)};
 `;
 const Typography = (props) => {
-  const { variant, children, align } = props;
+  const { variant, children, align, margin } = props;
   const tag = variant.includes("p") ? "p" : variant;
   return (
-    <Component as={tag} align={align} {...props}>
+    <Component as={tag} align={align} margin={margin} {...props}>
       {children}
     </Component>
   );
 };
 Typography.propTypes = {
-  variant: PropTypes.string,
-  color: PropTypes.string,
-  children: PropTypes.node.isRequired,
-  align: PropTypes.string,
+  variant: string,
+  color: string,
+  children: node.isRequired,
+  align: string,
+  margin: string,
 };
 
 Typography.defaultProps = {

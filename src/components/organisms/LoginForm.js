@@ -8,11 +8,17 @@ import Button from "../atoms/Button";
 import Typography from "../atoms/Typography";
 import { withRouter } from "react-router-dom";
 import * as Constants from "../../config/Constants";
+import CheckboxField from "../molecules/CheckboxField";
+import SdLink from "../atoms/SdLink";
 
 const InputFields = styled.div`
   margin-top: 1rem;
   justify-content: center;
   width: 100%;
+`;
+
+const SdRow = styled(Row)`
+  margin-bottom: 1.5rem;
 `;
 
 class LoginForm extends Component {
@@ -53,7 +59,7 @@ class LoginForm extends Component {
             />
           </Col>
         </Row>
-        <Row>
+        <SdRow>
           <Col>
             <IconInputField
               icon={<Icon icon={"lock"} />}
@@ -63,10 +69,22 @@ class LoginForm extends Component {
               onChange={this.handleOnChange}
             />
           </Col>
+        </SdRow>
+        <SdRow>
+          <Col xs={6}>
+            <CheckboxField color={"secondary"} label={"Remember me"} />
+          </Col>
+          <Col xs={6}>
+            <SdLink color={"secondary"} path={"#"} align={"right"}>
+              Forgot password?
+            </SdLink>
+          </Col>
+        </SdRow>
+        <Row justify={"center"}>
+          <Button color={"secondary"} onClick={this.handleLogin}>
+            Login
+          </Button>
         </Row>
-        <Button color={"secondary"} onClick={this.handleLogin}>
-          Login
-        </Button>
       </InputFields>
     );
   }

@@ -15,6 +15,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Mulish', sans-serif;
     background-color: #51A94B;
     height: 100%;
+    overflow: hidden;
   }
 
   *,
