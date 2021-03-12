@@ -28,7 +28,7 @@ const UserCardHeader = (props) => {
         <Typography color={"primary"} variant={"p2"} align={"left"}>
           {firstName}
         </Typography>
-        <LastName color={"primary"} variant={"p2"} align={"left"}>
+        <LastName color={"tertiary"} variant={"p2"} align={"left"}>
           {lastName}
         </LastName>
       </NamesContainer>
