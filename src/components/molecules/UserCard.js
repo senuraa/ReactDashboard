@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import UserCardHeader from "../molecules/UserCardHeader";
+import UserCardHeader from "./UserCardHeader";
 import { shape, string } from "prop-types";
 import styled from "styled-components";
 
