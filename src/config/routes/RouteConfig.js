@@ -13,7 +13,7 @@ const RouteArray = [
     path: Constants.ROUTE_CREATE_USERS,
     component: CreateUser,
     title: "Create User",
-    icon: "user",
+    icon: "file-alt",
   },
   {
     path: Constants.ROUTE_LOGOUT,
