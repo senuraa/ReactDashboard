@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import styled, { withTheme } from "styled-components";
 import * as Constants from "../../config/Constants";
@@ -30,8 +30,17 @@ const StyledInput = styled.input`
       : ""};
 `;
 
-const InputField = (props) => {
-  const { variant, type, value, name, placeholder, onChange, required } = props;
+const InputField = forwardRef((props, ref) => {
+  const {
+    variant,
+    type,
+    value,
+    name,
+    placeholder,
+    onChange,
+    required,
+    onKeyDown,
+  } = props;
   return (
     <StyledInput
       type={type}
@@ -41,10 +50,12 @@ const InputField = (props) => {
       onChange={onChange}
       required={required}
       variant={variant}
+      onKeyDown={onKeyDown}
+      ref={ref}
       {...props}
     />
   );
-};
+});
 
 InputField.propTypes = {
   variant: PropTypes.string,
@@ -54,6 +65,8 @@ InputField.propTypes = {
   placeholder: PropTypes.string,
   onChange: PropTypes.func,
   required: PropTypes.bool,
+  onKeyDown: PropTypes.func,
+  ref: PropTypes.func,
 };
 
 InputField.defaultProps = {
@@ -61,5 +74,5 @@ InputField.defaultProps = {
   type: "text",
   required: false,
 };
-
+InputField.displayName = "InputField";
 export default withTheme(InputField);

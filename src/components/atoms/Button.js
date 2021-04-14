@@ -1,6 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
+import PropTypes, { node } from "prop-types";
 import styled, { withTheme } from "styled-components";
+import { string } from "@redux-saga/is";
 
 const StyledButton = styled.button`
   padding: 1rem 3rem;
@@ -36,8 +37,8 @@ const Button = (props) => {
 };
 
 Button.propTypes = {
-  children: PropTypes.node.isRequired,
-  color: PropTypes.string,
+  children: node.isRequired,
+  color: string,
   onClick: PropTypes.func.isRequired,
 };
 

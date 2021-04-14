@@ -15,6 +15,10 @@ const Theme = {
       main: "#4A484B",
       contrastText: "#fff",
     },
+    quaternary: {
+      main: "#DAF1FD",
+      contrastText: "#4A484B",
+    },
     error: {
       main: "#4A484B",
       contrastText: "#fff",
