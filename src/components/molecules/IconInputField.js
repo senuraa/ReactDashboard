@@ -19,7 +19,7 @@ const IconInputField = (props) => {
   return (
     <InputWrapper>
       <IconHolder>{icon}</IconHolder>
-      <InputField {...other} />
+      <InputField {...other} {...props} />
     </InputWrapper>
   );
 };

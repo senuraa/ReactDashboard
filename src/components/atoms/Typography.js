@@ -1,11 +1,14 @@
 import React from "react";
-import { node, string } from "prop-types";
+import { node, number, string } from "prop-types";
 import styled, { withTheme } from "styled-components";
 
 const Component = styled.p`
   color: ${(props) => props.theme.colors.text[props.color]};
   font-size: ${(props) => props.theme.typography[props.variant].fontSize};
-  font-weight: ${(props) => props.theme.typography[props.variant].fontWeight};
+  font-weight: ${(props) =>
+    props.fontWeight
+      ? props.fontWeight
+      : props.theme.typography[props.variant].fontWeight};
   text-align: ${(props) => props.align};
   margin: ${(props) => (props.margin ? props.margin : 0)};
 `;
@@ -24,6 +27,7 @@ Typography.propTypes = {
   children: node.isRequired,
   align: string,
   margin: string,
+  fontWeight: number,
 };
 
 Typography.defaultProps = {

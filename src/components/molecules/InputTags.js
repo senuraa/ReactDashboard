@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import styled, { withTheme } from "styled-components";
-import PropTypes from "prop-types";
+import { func, string } from "prop-types";
+import Typography from "../atoms/Typography";
 
 const InputTagContainer = styled.div`
   padding: 0.5rem;
   border: 1px solid ${(props) => props.theme.colors.quaternary.main};
+  margin-top: 1rem;
+  background-color: ${(props) => props.theme.colors.white};
 `;
 const UlInputTag = styled.ul`
   margin: 0;
@@ -31,7 +34,8 @@ const TagButton = styled.button`
 const TagText = styled.span`
   margin-right: 0.5rem;
 `;
-const InputTags = ({ getTags }) => {
+const InputTags = (props) => {
+  const { getTags, label, name } = props;
   const [tags, setTags] = useState([]);
   const inputField = React.createRef();
   const onTagRemove = (idx) => {
@@ -41,7 +45,7 @@ const InputTags = ({ getTags }) => {
   };
   const onInputKeyDown = (e) => {
     const value = e.target.value;
-    if (e.key === "Enter" && value) {
+    if (e.key === " " && value) {
       setTags((tags) => [...tags, value]);
       inputField.current.value = null;
     } else if (e.key === "Backspace" && !value) {
@@ -60,23 +64,30 @@ const InputTags = ({ getTags }) => {
     </LiInput>
   ));
   return (
-    <InputTagContainer onClick={() => inputField.current.focus()}>
-      <UlInputTag>
-        {tagsItems}
-        <LiInput>
-          <TextInput
-            name={"User Roles"}
-            ref={inputField}
-            onKeyDown={onInputKeyDown}
-            onChange={onInputChange}
-          />
-        </LiInput>
-      </UlInputTag>
-    </InputTagContainer>
+    <>
+      <Typography variant={"p1"} color={"primary"} fontWeight={400}>
+        {label}
+      </Typography>
+      <InputTagContainer onClick={() => inputField.current.focus()}>
+        <UlInputTag>
+          {tagsItems}
+          <LiInput>
+            <TextInput
+              name={name}
+              ref={inputField}
+              onKeyDown={onInputKeyDown}
+              onChange={onInputChange}
+            />
+          </LiInput>
+        </UlInputTag>
+      </InputTagContainer>
+    </>
   );
 };
 InputTags.propTypes = {
-  getTags: PropTypes.func.isRequired,
+  getTags: func.isRequired,
+  label: string,
+  name: string,
 };
 
 export default withTheme(InputTags);

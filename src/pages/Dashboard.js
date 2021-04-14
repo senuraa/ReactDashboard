@@ -45,6 +45,7 @@ const SidebarArea = styled.div`
 const ContentArea = styled.div`
   flex-grow: 1;
   overflow-y: auto;
+  padding: 1rem;
 `;
 
 const Dashboard = (props) => {

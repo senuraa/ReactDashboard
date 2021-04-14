@@ -3,6 +3,7 @@ const Theme = {
     black: "#000",
     white: "#fff",
     grey: "#ECEAEB",
+    formBg: "#f9f9f9",
     primary: {
       main: "#51A94B",
       contrastText: "#fff",
@@ -26,7 +27,7 @@ const Theme = {
     text: {
       primary: "#858F98",
       secondary: "#fff",
-      tertiary: "#4A484B",
+      tertiary: "#4a484b",
       quaternary: "#0D126F",
       error: "#f44336",
     },

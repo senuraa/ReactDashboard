@@ -19,14 +19,15 @@ const StyledInput = styled.input`
     color: ${(props) => props.theme.colors.text.primary};
   }
 
-  border-radius: 0.3rem;
+  border-radius: ${(props) =>
+    props.variant === Constants.INPUT_FILLED ? 0 : "0.3rem"};
   border: ${(props) =>
     props.variant === Constants.INPUT_STD
       ? `1px solid ${props.theme.colors.text.primary}`
       : "none"};
   border-bottom: ${(props) =>
     props.variant === Constants.INPUT_FILLED
-      ? `2px solid ${props.theme.colors.text.primary}`
+      ? `1px solid ${props.theme.colors.text.primary}`
       : ""};
 `;
 

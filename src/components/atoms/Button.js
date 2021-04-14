@@ -30,7 +30,7 @@ const StyledButton = styled.button`
 const Button = (props) => {
   const { children, onClick, color } = props;
   return (
-    <StyledButton onClick={onClick} color={color}>
+    <StyledButton onClick={onClick} color={color} {...props}>
       {children}
     </StyledButton>
   );
@@ -39,7 +39,7 @@ const Button = (props) => {
 Button.propTypes = {
   children: node.isRequired,
   color: string,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
 };
 
 export default withTheme(Button);
