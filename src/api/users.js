@@ -8,3 +8,8 @@ export const getUsers = () => {
 export const createUser = (user) => {
   return axios.post(API_USERS, user);
 };
+
+export const deleteUser = (id) => {
+  const deleteUrl = `${API_USERS}/${id}`;
+  return axios.delete(deleteUrl);
+};

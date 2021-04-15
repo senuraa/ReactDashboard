@@ -1,7 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import UserCardHeader from "./UserCardHeader";
 import { shape, string } from "prop-types";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { deleteUser as actionDeleteUser } from "../../actions/users";
+import { deleteUser } from "../../api/users";
 
 const CardWrap = styled.div`
   margin: 1rem;
@@ -22,35 +25,30 @@ const Avatar = styled.img`
   background-color: #f2efea;
 `;
 
-class UserCard extends Component {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  render() {
-    const { firstName, lastName } = this.props.user;
-    return (
-      <CardWrap>
-        <UserCardHeader
-          firstName={firstName}
-          lastName={lastName}
-          onClick={this.handleClick}
+const UserCard = (props) => {
+  const { firstName, lastName, _id } = props.user;
+  const dispatch = useDispatch();
+  const onDelete = (id) => {
+    //ignored promise due to bad UX when waiting
+    deleteUser(id);
+    dispatch(actionDeleteUser(id));
+  };
+  return (
+    <CardWrap>
+      <UserCardHeader
+        firstName={firstName}
+        lastName={lastName}
+        onClick={() => onDelete(_id)}
+      />
+      <CardBody>
+        <Avatar
+          src="//joeschmoe.io/api/v1/jon"
+          alt={`${firstName} ${lastName}`}
         />
-        <CardBody>
-          <Avatar
-            src="//joeschmoe.io/api/v1/jon"
-            alt={`${firstName} ${lastName}`}
-          />
-        </CardBody>
-      </CardWrap>
-    );
-  }
-
-  handleClick() {
-    //TODO: Delete User, get _id from user
-  }
-}
+      </CardBody>
+    </CardWrap>
+  );
+};
 
 UserCard.propTypes = {
   user: shape({

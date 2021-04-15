@@ -23,6 +23,12 @@ export default function data(state = INIT_STATE, action) {
         isFailed: true,
       };
     }
+    case Types.DELETE_USER_REQUEST: {
+      return {
+        ...state,
+        data: state.data.filter((record) => record._id !== action.payload.id),
+      };
+    }
     default:
       return state;
   }

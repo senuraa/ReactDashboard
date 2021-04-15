@@ -8,6 +8,7 @@ import InputTags from "../molecules/InputTags";
 // eslint-disable-next-line no-unused-vars
 import Button from "../atoms/Button";
 import { createUser } from "../../api/users";
+import Typography from "../atoms/Typography";
 
 const FormWrap = styled.form`
   width: 100%;
@@ -15,24 +16,39 @@ const FormWrap = styled.form`
 const SdRow = styled(Row)`
   margin-top: 1rem;
 `;
-
+const ErrorComp = () => {
+  return (
+    <Typography color={"error"} align={"center"} variant={"p1"}>
+      Error occurred while creating user
+    </Typography>
+  );
+};
 const CreateUserForm = () => {
-  const [user, setUser] = useState({
+  const initState = {
     firstName: "",
     lastName: "",
     email: "",
     departmentName: "",
     roles: [],
-  });
+  };
+  const [user, setUser] = useState(initState);
+  const [hasError, setHasError] = useState(false);
   const getTags = (tags) => {
     setUser({ ...user, roles: tags });
   };
   const submit = (e) => {
     e.preventDefault();
-    createUser(user).then((r) => console.log(r));
+    createUser(user)
+      .then(() => setUser(initState))
+      .catch(() => setHasError(true));
+  };
+  const onChange = (e, param) => {
+    setHasError(false);
+    setUser({ ...user, [param]: e.target.value });
   };
   return (
     <FormWrap onSubmit={submit}>
+      {hasError && <ErrorComp />}
       <Row>
         <Col>
           <IconInputField
@@ -41,7 +57,7 @@ const CreateUserForm = () => {
             placeholder={"First Name"}
             value={user.firstName}
             required={true}
-            onChange={(e) => setUser({ ...user, firstName: e.target.value })}
+            onChange={(e) => onChange(e, "firstName")}
           />
         </Col>
         <Col>
@@ -51,7 +67,7 @@ const CreateUserForm = () => {
             placeholder={"Last Name"}
             value={user.lastName}
             required={true}
-            onChange={(e) => setUser({ ...user, lastName: e.target.value })}
+            onChange={(e) => onChange(e, "lastName")}
           />
         </Col>
       </Row>
@@ -64,7 +80,7 @@ const CreateUserForm = () => {
             value={user.email}
             required={true}
             type={"email"}
-            onChange={(e) => setUser({ ...user, email: e.target.value })}
+            onChange={(e) => onChange(e, "email")}
           />
         </Col>
         <Col>
@@ -74,9 +90,7 @@ const CreateUserForm = () => {
             placeholder={"Department"}
             value={user.departmentName}
             required={true}
-            onChange={(e) =>
-              setUser({ ...user, departmentName: e.target.value })
-            }
+            onChange={(e) => onChange(e, "departmentName")}
           />
         </Col>
       </SdRow>
@@ -93,7 +107,6 @@ const CreateUserForm = () => {
     </FormWrap>
   );
 };
-
 CreateUserForm.propTypes = {};
 
 export default CreateUserForm;
